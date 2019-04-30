@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>내장클래스</title>
+<script type="text/javascript">
+/*
+//Javascript에서 객체 생성 방법
+var object=new Object();
+//Object 객체 생성 후 property 또는 method 추가
+object.num=1000;
+object.name="홍길동";
+*/
+
+//Javascript에서 JSON 표기법으로 객체 생성 방법
+// => 객체 생성시 property 또는 method 추가
+var object={"num":1000,"name":"홍길동"};
+
+//alert(typeof(object));//자료형 : object
+//alert(object);//Object 객체
+//alert("번호 = "+object.num+", 이름 = "+object.name);
+
+//stringify(객체) : Javascript 객체를 문자열로 변환하여 반환하는 메소드
+var string=JSON.stringify(object);
+//alert(typeof(string));//자료형 : string
+//alert(string);//문자열 출력
+
+//parse(문자열) : JSON 표기법 형식으로 작성된 문자열을 Javascript 객체로 변환하는 반환하는 메소드
+//var obj=JSON.parse(string);
+var obj=eval("("+string+")");//parse() 메소드와 동일한 기능 구현
+//alert(typeof(obj));//자료형 : object
+//alert(obj);//Object 객체
+alert("번호 = "+obj.num+", 이름 = "+obj.name);
+</script>
+</head>
+<body>
+	<h1>JSON 클래스</h1>
+	<hr>
+	<p>JSON 관련  property 및 method를 제공하기 위한 클래스</p>
+	<p>JSON 표기법 : Javascript에서 객체를 기호([] 또는 {})로 표현하기 위한 방법</p>
+</body>
+</html>

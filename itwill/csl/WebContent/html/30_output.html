@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>output 태그</title>
+</head>
+<body>
+	<h1>output 태그 - 연산결과 출력(HTML5)</h1>
+	<hr>
+	<!-- oninput 속성 : 입력 이벤트 속성 -->
+	<!--  => 입력 이벤트 발생시 처리될 명령(Javascript) 속성값 설정 -->
+	<form oninput="result.value=parseInt(num1.value)+parseInt(num2.value)">
+		<input type="number" name="num1" value="10">
+		+
+		<input type="number" name="num2" value="10">
+		=
+		<output name="result">20</output>
+	</form>
+</body>
+</html>

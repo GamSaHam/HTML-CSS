@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Control Statement</title>
+<script type="text/javascript">
+/*
+var num=prompt("숫자를 입력해 주세요.");
+//isNaN(대상) : 대상이 Number 자료형이 아닌 경우 true 반환, 아니면 false 반환
+if(isNaN(num)) {
+	alert("입력 데이타는 숫자가 아닙니다.");	
+} else {
+	alert("결과 = "+(num*num));
+}
+*/
+
+/*
+var kor=98,eng=80,mat=91;
+var tot=kor+eng+mat;
+//alert("tot = "+tot);
+//parseInt(대상) : 대상를 정수로 변환하여 반환하는 함수 => 유사) parseFloat(대상)
+var ave=parseInt(tot/3*100)/100;
+//alert("ave = "+ave);
+var grade;
+switch(parseInt(ave/10)) {
+case 10:
+case 9: grade="A"; break;
+case 8: grade="B"; break;
+case 7: grade="C"; break;
+case 6: grade="D"; break;
+default: grade="F"; break;
+}
+alert("총점 = "+tot+", 평균 = "+ave+", 학점 = "+grade);
+*/
+
+/*
+var total=0;
+for(var i=1;i<=100;i++) total+=i;
+alert("1~100 범위의 정수 합계 = "+total);
+*/
+
+/*
+var cnt=0,gae=1;
+while(true) {
+	cnt++;
+	gae*=2;
+	if(gae>=500) break;
+}
+alert(cnt+"번 접으면 "+gae+"개의 사각형이 생긴다.");
+*/
+
+var txt="";
+for(var i=1;i<=10;i++) {
+	if(i%2==0) continue;
+	txt+=i+" ";
+}
+alert("1~10범위의 홀수 = "+txt);
+</script>
+</head>
+<body>
+	<h1>제어문</h1>
+	<hr>
+	<p>선택문 - if, switch</p>
+	<p>반복문 - for, while</p>
+	<p>기타 - continue, break, return</p>
+</body>
+</html>

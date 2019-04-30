@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS 적용</title>
+<!-- 3.외부에 존재하는 CSS 파일을 link 태그로 불러와 선택자(Selector)로
+엘리먼트를 선택하여 CSS 스타일 적용 -->
+<!-- 모든 웹문서에 동일한 CSS 스타일 적용을 하기 위해 사용 -->
+<!--  => 단계적 적용을 위해 맨 처음에 불러와 적용하는 것을 권장 -->
+<link href="04_style.css" rel="stylesheet" type="text/css">
+
+<!-- 2.현재 웹문서 내용에 style 태그 안에서 선택자(Selector)로
+엘리먼트를 선택하여 CSS 스타일 적용 -->
+<style type="text/css">
+/*
+p {
+	color: green;
+}
+*/
+.one {
+	color: green;
+}
+</style>
+</head>
+<body>
+	<h1>CSS 스타일 적용 방법 및 순서</h1>
+	<hr>
+	<!-- 1.엘리먼트(태그)의 style 속성의 속성값으로 CSS 스타일 적용 -->
+	<p style="color: red;">아주 중요한 내용-1</p>
+	<p class="one">아주 중요한 내용-2</p>
+	<p class="two">아주 중요한 내용-3</p>
+</body>
+</html>

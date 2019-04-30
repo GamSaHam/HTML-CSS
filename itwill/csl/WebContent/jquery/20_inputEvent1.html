@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Event</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<style type="text/css">
+fieldset {
+	margin: 10px auto;
+	width: 800px;
+}
+
+legend {
+	font-size: 1.2em;
+}
+
+form label {
+	width: 100px;
+	text-align: right;
+	float: left;
+	margin-right: 10px;
+}
+
+form ul li {
+	list-style-type: none;
+	margin: 15px 0;
+}
+
+#fs {
+	text-align: center;
+}
+
+.error {
+	border: 1px solid red;
+}
+</style>
+</head>
+<body>
+	<h1>입력폼 이벤트</h1>
+	<hr>
+	<form id="joinForm">
+	<fieldset>
+		<legend>회원가입 정보</legend>
+		<ul>
+			<li>
+				<label for="id">아이디</label>
+				<input type="text" name="id" id="id">
+				<span id="idHelper"></span>
+			</li>
+			<li>
+				<label for="passwd">비밀번호</label>
+				<input type="password" name="passwd" id="passwd">
+			</li>
+			<li>
+				<label for="name">이름</label>
+				<input type="text" name="name" id="name">
+			</li>
+			<li>
+				<label for="email">이메일</label>
+				<input type="text" name="email" id="email" size="30">
+			</li>
+			<li>
+				<label for="address">주소</label>
+				<input type="text" name="address" id="address" size="40">
+			</li>
+		</ul>
+	</fieldset>
+	<fieldset id="fs">
+		<button type="button" id="submitBtn">회원가입</button>
+		<button type="button" id="resetBtn">다시입력</button>
+	</fieldset>
+	</form>
+	<script type="text/javascript">
+	//$(선택자).focus() : 선택자로 선택된 엘리먼트(입력태그)에 포커스를 위치 시키는 메소드
+	$("#id").focus();
+	
+	//$(선택자).blur(callback) : 선택자에 의해 선택된 엘리먼트(입력태그)에
+	//포커스가 벗어날 경우의 이벤트를 처리하는 이벤트 핸들러 함수를 등록하는 메소드 
+	$("#id").blur(function() {
+		if($("#id").val()=="") {
+			$("#idHelper").text("아이디를 반드시 입력해 주세요.");
+			$("#id").addClass("error");
+			return;
+		}
+		
+		var idReg=/^[a-zA-Z]\w{5,19}$/g;
+		if(!idReg.test($("#id").val())) {
+			$("#idHelper").text("규칙에 맞는 아이디를 입력해 주세요.");
+			$("#id").addClass("error");
+			return;
+		}
+	});
+	
+	//$(선택자).focus(callback) : 선택자에 의해 선택된 엘리먼트(입력태그)에
+	//포커스가 위치할 경우의 이벤트를 처리하는 이벤트 핸들러 함수를 등록하는 메소드 
+	$("#id").focus(function() {
+		$("#idHelper").text("");
+		$("#id").removeClass("error");
+	});
+	
+	//회원가입 버튼을 누른 경우 액션 페이지로 입력 데이타를 전달하여 이동
+	// => 입력 데이타에 대한 입력 유무 및 유효성 검사 후 전달
+	$("#submitBtn").click(function() {
+		//$(선택자).val([내용]) : 선택자에 의해 선택된 엘리먼트(입력태그)에
+		//입력된 내용을 반환하거나 변경하는 메소드
+		if($("#id").val()=="") {
+			alert("아이디를 반드시 입력해 주세요.");
+			$("#id").focus();
+			return;
+		}
+		
+		var idReg=/^[a-zA-Z]\w{5,19}$/g;
+		if(!idReg.test($("#id").val())) {
+			alert("규칙에 맞는 아이디를 입력해 주세요.");
+			//$("#id").val("");
+			$("#id").focus();
+			return;
+		}
+		
+		if($("#passwd").val()=="") {
+			alert("비밀번호를 반드시 입력해 주세요.");
+			$("#passwd").focus();
+			return;
+		}
+		
+		if($("#name").val()=="") {
+			alert("이름을 반드시 입력해 주세요.");
+			$("#name").focus();
+			return;
+		}
+		
+		if($("#email").val()=="") {
+			alert("이메일을 반드시 입력해 주세요.");
+			$("#email").focus();
+			return;
+		}
+		
+		if($("#address").val()=="") {
+			alert("주소를 반드시 입력해 주세요.");
+			$("#address").focus();
+			return;
+		}
+		
+		$("#joinForm").attr("action","#");
+		$("#joinForm").attr("method","post");
+		//$(선택자).submit() : 선택자에 의해 선택된 엘리먼트(폼태그)에
+		//포함된 모든 입력 태그의 데이타를 액션페이지로 전달하여 이동 시키는 메소드
+		$("#joinForm").submit();
+	});
+	
+	//다시입력 버튼을 누른 경우 입력 태그 초기화
+	$("#resetBtn").click(function() {
+		//$(선택자)[0].reset() : 선택자에 의해 선택된 엘리먼트(폼태그)에
+		//포함된 모든 입력 태그를 초기화 시키는 메소드
+		$("#joinForm")[0].reset();
+		$("#id").focus();
+	});
+	</script>
+</body>
+</html>

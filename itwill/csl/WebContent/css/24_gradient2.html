@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gradient</title>
+<style type="text/css">
+div {
+	width: 500px;
+	height: 300px;
+	border: 1px solid black;
+}	
+
+/* background 속성의 속성값으로 radial-gradient 함수 사용하여 
+선형 그러데이션 효과 설정 */
+.grad {
+	/* radial-gradient(모양,시작색,마지막색) */
+	/* => 중심 위치 : 정중앙 */
+	background: radial-gradient(circle,white,blue);
+	
+	/* radial-gradient(중심위치,모양,시작색,마지막색) */
+	background: -webkit-radial-gradient(60% 60%,circle,white,blue);
+	
+	/* 중간에 색상 변경 가능 => 백분율이 생략되면 50% 기본 */
+	background: radial-gradient(ellipse,white,yellow,red);
+}
+</style>
+</head>
+<body>
+	<h1>원형 그러데이션 효과</h1>
+	<hr>
+	<div class="grad"></div>
+</body>
+</html>

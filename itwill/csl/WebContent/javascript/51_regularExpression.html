@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Regular Expression</title>
+<style type="text/css">
+fieldset {
+	margin: 10px auto;
+	width: 500px;
+}
+
+legend {
+	font-size: 1.2em;
+}
+
+form label {
+	width: 100px;
+	text-align: right;
+	float: left;
+	margin-right: 10px;
+}
+
+form ul li {
+	list-style-type: none;
+	margin: 15px 0;
+}
+
+#fs {
+	text-align: center;
+}
+</style>
+<script type="text/javascript">
+window.onload=function() {
+	joinForm.id.focus();
+	
+	//회원가입 버튼을 누른 경우 회원가입 페이지로 이동
+	document.getElementById("submitBtn").onclick=function() {
+		//입력태그의 데이타 입력 유무 확인 및 입력 데이타에 대한 유효성 검사
+		if(joinForm.id.value=="") {
+			alert("아이디를 반드시 입력해 주세요.");
+			joinForm.id.focus();
+			return;
+		}
+		
+		/*
+		//아이디 입력 규칙 : 영문자 또는 숫자 또는 특수문자(_)의 
+		//조합으로 영문자로 시작되며 문자의 갯수가 6~20 범위로 작성
+		//입력 아이디에 대한 유효성 검사 => 규칙에 맞지 않을 경우 회원가입 불가
+		var id=joinForm.id.value;
+		
+		//아이디에 영문자 또는 숫자 또는 특수문자(_)가 아닌 문자가 입력된 경우
+		for(var i=0;i<id.length;i++) {
+			var mun=id.charAt(i);
+			if(!(mun>='A' && mun<='Z' || mun>='a' && mun<='z' 
+					|| mun>='0' && mun<='9' || mun=='_')) {
+				alert("아이디 작성 규칙에 맞지 않습니다.");
+				//joinForm.id.value="";//입력태그의 입력 데이타 초기화 
+				joinForm.id.focus();
+				return;
+			}
+		}
+		
+		//아이디가 영문자로 시작되지 않는 경우
+		if(!(id[0]>="A" && id[0]<="Z" || id[0]>="a" && id[0]<="z")) {
+			alert("아이디 작성 규칙에 맞지 않습니다.");
+			joinForm.id.focus();
+			return;
+		} 
+		
+		//아이디의 문자 갯수가 6~20 범위가 아닌 경우
+		if(!(id.length>=6 && id.length<=20)) {
+			alert("아이디 작성 규칙에 맞지 않습니다.");
+			joinForm.id.focus();
+			return;
+		}
+		*/
+		
+		//입력 데이타에 대한 유효성 검사는 정규표현식을 이용하는 것을 권장한다.
+		/* 
+		정규표현식 기호
+		^X : X로 시작
+		X$ : X로 종료
+		(X|Y) : X 또는 Y 중 하나
+		[XY] : X 또는 Y 중 하나
+		[^XY] : X 또는 Y를 제외한 하나
+		[A-Z] : A~Z 범위 중 하나
+		
+		X* : X가 0번이상 반복
+		X+ : X가 1번이상 반복
+		X? : X가 없거나 하나인 경우
+				
+		X{n} : X를 n번 반복
+		X{n,} : X를 n번이상 반복
+		X{n,m} : X를 n번이상 m번이하 반복
+		
+		\s : 공백 존재
+		\d : 숫자 존재
+		\D : 숫자가 아닌 문자 존재
+		\t : Tab 존재
+		\w : 영문자,숫자,_ 존재
+		\W : 영문자,숫자,_외 존재
+		*/
+		
+		//정규표현식를 저장한 객체 생성
+		//형식-1) var 객체명=new RegExp("정규표현식");
+		//형식-2) var 객체명=/정규표현식/옵션;
+		//g : 모든 문자열에 일치 여부 검색  
+		//var idReg=/^[a-zA-Z][a-zA-Z0-9_]{5,19}$/g;
+		var idReg=/^[a-zA-Z]\w{5,19}$/g;
+				
+		//정규표현식 객체를 이용하여 유효성 검사
+		//형식) 객체.test(비교문자열) : 문자열이 정규표현식으로 
+		//표현한 규칙에 맞으면 true 반환, 맞지 않으면 false 반환
+		if(!idReg.test(joinForm.id.value)) {//정규표현식의 규칙에 입력 아이디가 맞지 않으면
+			alert("아이디 작성 규칙에 맞지 않습니다.");
+			joinForm.id.focus();
+			return;
+		}
+				
+		if(joinForm.passwd.value=="") {
+			alert("비밀번호를 반드시 입력해 주세요.");
+			joinForm.passwd.focus();
+			return;
+		}
+		
+		if(joinForm.name.value=="") {
+			alert("이름을 반드시 입력해 주세요.");
+			joinForm.name.focus();
+			return;
+		}
+				
+		if(joinForm.email.value=="") {
+			alert("이메일을 반드시 입력해 주세요.");
+			joinForm.email.focus();
+			return;
+		}
+		
+		if(joinForm.address.value=="") {
+			alert("주소를 반드시 입력해 주세요.");
+			joinForm.address.focus();
+			return;
+		}
+		
+		joinForm.action="#";
+		joinForm.method="post";
+		joinForm.submit();
+	}
+	
+	//다시입력 버튼을 누른 경우 입력태그의 입력데이타 초기화
+	document.getElementById("resetBtn").onclick=function() {
+		//reset() : form 태그 하위에 존재하는 모든 입력태그의 입력 데이타 초기화 메소드
+		joinForm.reset();
+		joinForm.id.focus();
+	}
+}
+</script>
+</head>
+<body>
+	<h1>정규표현식</h1>
+	<hr>
+	<p>특정된 규칙이 적용된 문자열을 표현하기 위한 기호 집합</p>
+	<hr>
+	<form name="joinForm">
+	<fieldset>
+		<legend>회원가입 정보</legend>
+		<ul>
+			<li>
+				<label for="id">아이디</label>
+				<input type="text" name="id" id="id">
+			</li>
+			<li>
+				<label for="passwd">비밀번호</label>
+				<input type="password" name="passwd" id="passwd">
+			</li>
+			<li>
+				<label for="name">이름</label>
+				<input type="text" name="name" id="name">
+			</li>
+			<li>
+				<label for="email">이메일</label>
+				<input type="text" name="email" id="email" size="30">
+			</li>
+			<li>
+				<label for="address">주소</label>
+				<input type="text" name="address" id="address" size="40">
+			</li>
+		</ul>
+	</fieldset>
+	<fieldset id="fs">
+		<button type="button" id="submitBtn">회원가입</button>
+		<button type="button" id="resetBtn">다시입력</button>
+	</fieldset>
+	</form>
+</body>
+</html>

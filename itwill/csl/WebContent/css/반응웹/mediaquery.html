@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 1.반응형 웹페이지를 만들기 위해서는 반드시 meta 태그 사용 -->
+<!-- name="viewport" : 스트마기기의 화면에 맞게 내용이 출력되도록 설정 -->
+<!--  => 스마트기기의 폭과 브라우저의 해상도 서로 다르기 때문에 출력 이상이 발생할 수 있다. -->
+<!-- content="width=device-width" : 스마트기기의 폭에 따라 해상도 조절 -->
+<meta name="viewport" content="width=device-width">
+<title>Media Query</title>
+<style type="text/css">
+body {
+	background: gray;
+}
+
+#wrapper {
+	/* 반응형 페이지를 만들기 위해 폭 또는 높이등을 백분율로 설정 */
+	width: 90%;
+	margin: 0 auto;
+}
+
+#logo img {
+	width: 100%;
+	margin-top: 150px;
+}
+
+/* 3.반응형 웹페이지를 만들 위해 @media 시스템 속성 사용 */
+/* @media : 장치 또는 해상도에 따른 다른 조건에서의 페이지 
+디자인을 따로 적용하기 위한 기능 */
+/* 형식) @media 미디어유형 [and 조건] [and 조건] {
+		 	property : value [value] ...;
+		 	... 
+		 }
+	=> 미디어유형 : all screen print tv aural braille 등 */
+@media all and (max-width:360px) {
+	body {
+		background: orange;
+	}
+}
+
+@media all and (min-width:361px) and (max-width:768px) {
+	body {
+		background: yellow;
+	}
+}
+
+@media all and (min-width:769px) and (max-width:1024px) {
+	body {
+		background: green;
+	}
+}	
+</style>
+</head>
+<body>
+	<!-- 반응형 웹디자인을 적용한 페이지 작성 
+	=> 브라우저 해상도 따라 다르게 출력되도록 제공하는 디자인 기법 -->
+	<!-- 2.반응형 웹페이지를 만들기 위해서는 반드시 div 태그로 전체 출력 영역을 설정한다. -->
+	<div id="wrapper">
+		<div id="logo">
+			<img src="logo.png">
+		</div>
+	</div>
+</body>
+</html>

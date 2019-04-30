@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Animation Style</title>
+<style type="text/css">
+#ani {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	background: url("images/f1.png") no-repeat center center padding-box;
+	border: 2px solid black;
+	border-radius: 50px;
+	
+	/* animation-name : 사용 애니메이션 이름 설정 */
+	animation-name: myani;
+	
+	/* animation-duration : 애니메이션 적용 시간 */
+	animation-duration: 3s;
+	
+	/* animation-lteration-count : 애니메이션 효과 반복 횟수 */
+	/* 속성값 => 반복횟수 또는 infinite(무한반복) */
+	animation-iteration-count: infinite;
+	
+	/* animation-direction : 애니메이션 효과 진행 방향 */
+	/* 속성값 => altermate : 애니메이션 효과 종료 후 반대 방향 진행 */
+	animation-direction: alternate;
+}
+
+/* @keyframes : 애니메이션의 이름 및 상태를 정의하기 위한 시스템 속성 */
+/* => 상태는 2가지 이상을 부여하며 시작상태와 마지막 상태는 반드시 설정 */
+@keyframes myani {
+	/* 시작상태 */
+	0% { left: 10px; }
+	50% { background: url("images/f2.png") no-repeat center center padding-box; }
+	/* 마지막상태 */
+	100% { left: 500px; }
+}
+</style>
+</head>
+<body>
+	<h1>애니메이션 효과</h1>
+	<hr>
+	<div id="ani"></div>
+</body>
+</html>

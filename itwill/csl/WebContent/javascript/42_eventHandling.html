@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Event</title>
+<script type="text/javascript">
+//이벤트 핸들러 함수 => 이벤트 처리를 목적으로 선언된 함수
+function process() {
+	alert("버튼을 잘 눌렀습니다.");	
+}
+
+window.onload=function() {
+	//이벤트를 발생하는 엘리먼트에서 이벤트가 발생될 경우 처리하기 
+	//위한 이벤트 핸들러 함수를 등록하여 이벤트 처리
+	var btn=document.getElementById("btn");
+	btn.onclick=function() { //이벤트에 대한 이벤트 처리 핸들러 등록
+		alert("버튼을 잘 눌렀습니다.");		
+	}
+}
+</script>
+</head>
+<body>
+	<h1>이벤트 처리</h1>
+	<hr>
+	<p>브라우저에서 발생하는 이벤트를 처리하는 방법 - Javascript 함수 호출</p>
+	<hr>
+	<!-- HTML 태그에 존재하는 이벤트 속성(onXXX)에서 Javascript 함수 호출하여 이벤트 처리 -->
+	<button type="button" onclick="process();">버튼을 눌러보세요.</button>
+	<hr>
+	<button type="button" id="btn">버튼을 눌러보세요.</button>
+</body>
+</html>

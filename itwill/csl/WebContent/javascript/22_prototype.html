@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Prototype</title>
+<script type="text/javascript">
+function Student(num,name,address) {
+	this.num=num;
+	this.name=name;
+	this.address=address;
+}
+
+/*
+//프로토타입 메소드 선언
+Student.prototype.display=function() {
+	alert("학번 = "+this.num+", 이름 = "+this.name+", 주소 = "+this.address);
+}
+
+Student.prototype.setStudent=function(num,name,address) {
+	this.num=num;
+	this.name=name;
+	this.address=address;
+}
+*/
+
+//프로토타입 메소드 일괄 선언
+Student.prototype={
+	"display":function() {
+		alert("학번 = "+this.num+", 이름 = "+this.name+", 주소 = "+this.address);
+	},
+	"setStudent":function(num,name,address) {
+		this.num=num;
+		this.name=name;
+		this.address=address;
+	}	
+};
+
+//프로퍼티는 객체마다 따로 생성되지만 메소드는 공유하여 사용
+var student1=new Student(1000,"홍길동","서울시 강남구");
+var student2=new Student(2000,"임꺽정","수원시 팔달구");
+var student3=new Student(3000,"전우치","인천시 월미구");
+
+student1.display();
+student2.display();
+student3.display();
+
+student1.setStudent(4000,"일지매","부산시 사상구");
+student1.display();
+</script>
+</head>
+<body>
+	<h1>Method Prototype</h1>
+	<hr>
+	<p>클래스의 메소드를 메모리에 하나만 생성하여 모든 객체가 
+	공유하여 사용할 수 있도록 메소드를 선언하는 방법</p>
+	<p>객체마다 메소드를 가지고 있는 경우 메모리 낭비 및 실행속도가	저하되므로 
+	메소드는 하나만 생성하여 모든 객체가 공유하여 사용하는 것을 권장한다.</p>
+</body>
+</html>

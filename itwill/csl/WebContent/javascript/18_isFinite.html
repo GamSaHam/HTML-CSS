@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>내장함수</title>
+<script type="text/javascript">
+//alert(10/0);//Infinity => 무한수
+
+//var su1=20,su2=10;
+var su1=20,su2=0;
+if(isFinite(su1/su2)) {
+	alert("결과 = "+(su1/su2));
+} else {
+	alert("0으로 나눌 수 없습니다.");
+}
+</script>
+</head>
+<body>
+	<h1>isFinite 함수</h1>
+	<hr>
+	<p>isFinite(숫자데이타) : 유한수인 경우 true 반환,무한수인 경우 false 반환</p>
+</body>
+</html>

@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>animate</title>
+<style type="text/css">
+/* 슬라이너 영역에 대한 스타일 설정 */
+#slider {
+	position: absolute;
+	width: 1000px;
+	height: 350px;
+	top: 100px;
+	left: 150px;
+	background-color: #ececec;
+}
+
+/* 슬라이더 이미지 출력 영역 => 영역을 벗어난 이미지를 보여지지 않도록 설정 */
+#sliderContainer {
+	position: relative;
+	width: 980px;
+	height: 327px;
+	margin: 10px;
+	overflow: hidden;
+}
+
+/* 슬라이더 이미지 출력 영역에 모든 이미지를 중첩되어 출력 */
+#sliderContainer img {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* 화살표 이미지 => 투명도를 0으로 하여 보여지지 않도록 설정 */
+#arrowContainer img {
+	position: absolute;
+	top: 200px;
+	opacity:0.0;
+}
+
+/* 커서가 화살표 이미지에 진입한 경우 투명도를 1로 하여 보여지도록 설정 */
+#arrowContainer img:HOVER {
+	opacity:1.0;
+}
+
+/* 화살표 이미지를 슬라이더 이미지 위에 출력되도록 설정 */
+#leftImg {
+	z-index:100;
+	left: 170px;
+}
+ 
+#rightImg {
+	z-index:100;
+	left: 1050px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//이미지 슬라이딩 기능 구현 및 화살표 이미지를 누른 경우 이미지 이동
+		//슬라이더 이미지 출력 영역의 모든 이미지를 선택하여 저장
+		var $images=$("#sliderContainer img");
+		
+		//슬라이더 이미지를 저장하기 위한 배열 선언
+		var arrayImage=new Array();
+		
+		//슬라이더 이미지를 배열 요소로 저장
+		$images.each(function(index) {
+			arrayImage[index]=$(this);
+		});
+		
+		//전체 슬라이더 이미지를 출력 영역 외부로 이동 
+		// => left 좌표를 -980px로 변경 
+		$images.css("left",-980);
+		
+		//첫번째 슬라이더 이미지를 출력 영역으로 이동
+		// => left 좌표를 0px로 변경 
+		$images.first().css("left",0);
+		
+		//3초마다 슬라이더 이미지 교체 
+		// => 이미지 이동(1초)+이미지 출력(2초)
+		// => 지속적인 사용을 위해 함수로 선언
+		var sliding=function() {
+			var intervalId=setInterval(function() {
+				//현재 출력 슬라이더 이미지를 저장
+				var $currentImage=arrayImage[0];
+				//다음 출력 슬라이더 이미지를 저장
+				var $nextImage=arrayImage[1];
+				
+				$currentImage.stop().animate({"left":980},1000);
+				$nextImage.css("left",-980);
+				$nextImage.stop().animate({"left":0},1000);
+				
+				//shift() : 배열의 첫번째 요소를 삭제하여 반환
+				var $removeImage=arrayImage.shift();
+				//push(요소) : 배열의 마지막 요소로 추가
+				arrayImage.push($removeImage);
+			},3000);
+			return intervalId;
+		}
+		
+		var slideId=sliding();
+		
+		$("#sliderContainer").mouseenter(function() {
+			clearInterval(slideId)
+		});		
+		
+		$("#sliderContainer").mouseleave(function() {
+			slideId=sliding();
+		});
+		
+		$("#rightImg").mouseover(function() {
+			clearInterval(slideId)
+		});
+		
+		$("#leftImg").mouseover(function() {
+			clearInterval(slideId)
+		});
+		
+		$("#rightImg").click(function() {
+			var $currentImage=arrayImage[0];
+			var $nextImage=arrayImage[1];
+			
+			$currentImage.stop().animate({"left":980},1000);
+			$nextImage.css("left",-980);
+			$nextImage.stop().animate({"left":0},1000);
+			
+			var $removeImage=arrayImage.shift();
+			arrayImage.push($removeImage);
+		});
+		
+		$("#leftImg").click(function() {
+			var $currentImage=arrayImage[0];
+			var $previousImage=arrayImage[arrayImage.length-1];
+			
+			$currentImage.stop().animate({"left":-980},1000);
+			$previousImage.css("left",980);
+			$previousImage.stop().animate({"left":0},1000);
+			
+			//pop() : 배열의 마지막 요소를 삭제하여 반환
+			var $removeImage=arrayImage.pop();
+			//unshift(요소) : 배열의 첫번째 요소로 추가
+			arrayImage.unshift($removeImage);
+		});
+	});	
+</script>
+</head>
+<body>
+	<h1>슬라이더</h1>
+	<hr>
+	<div id="slider">
+		<div id="sliderContainer">
+			<img src="img1.jpg"> 
+			<img src="img2.jpg"> 
+			<img src="img3.jpg">
+			<img src="img4.jpg">
+		</div>
+	</div>
+	<div id="arrowContainer">
+		<img src="left.png" id="leftImg">
+		<img src="right.png" id="rightImg">
+	</div>
+</body>
+</html>

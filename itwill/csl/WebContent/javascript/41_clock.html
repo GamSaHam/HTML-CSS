@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM - DHTML</title>
+<style type="text/css">
+#displayE {
+	margin: 0 auto;
+	padding: 30px 0;
+	width: 600px;
+	font-size: 2em;
+	font-weight: bold;
+	text-align: center;
+	border: 2px solid black; 
+}
+</style>
+<script type="text/javascript">
+window.onload=function() {
+	var displayClock= function() {
+		//현재 날짜와 시간정보를 얻어와 displayE 영역의 내용 변경
+		var now=new Date();
+		var output=now.getFullYear()+"년 "+(now.getMonth()+1)+"월 "
+			+now.getDate()+"일 "+now.getHours()+"시 "
+			+now.getMinutes()+"분 "+now.getSeconds()+"초";
+		//alert(output);
+		
+		var displayE=document.getElementById("displayE");
+		displayE.innerHTML=output;
+	}
+	displayClock();
+	
+	setInterval(displayClock,1000);
+}
+</script>
+</head>
+<body>
+	<h1>디지털시계</h1>
+	<hr>
+	<div id="displayE">
+		2018년 8월 21일 15시 38분 50초
+	</div>
+</body>
+</html>

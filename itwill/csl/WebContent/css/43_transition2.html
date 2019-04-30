@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#shape div {
+	width: 100px;
+	height: 100px;
+	background: url("images/f1.png") no-repeat center center padding-box;
+	border: 2px solid red;
+	border-radius: 0; 
+	position: relative;
+	left: 0;
+	/* transition : 트렌지션 관련 모든 속성값 사용 */
+	transition: all 2s ease-in 0.3s;
+}
+
+#shape div:HOVER {
+	background: url("images/f2.png") no-repeat center center padding-box;
+	border: 2px solid blue;
+	border-radius: 50%; 
+	left: 600px;
+}
+</style>
+</head>
+<body>
+	<h1>Transition 효과</h1>
+	<hr>
+	<p>도형 위에 마우스 포인터를 올려보세요.</p>
+	<div id="shape">
+		<div></div>
+	</div>
+</body>
+</html>

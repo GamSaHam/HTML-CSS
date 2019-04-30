@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM</title>
+<script type="text/javascript">
+//이벤트 핸들러 함수 => 이벤트 발생시 호출되는 함수
+function loaded() {
+	alert("로딩 완료");
+}
+
+//이벤트 처리방법-2 : Javascript 이벤트 관련 proprty에서 이벤트 핸들러 함수 작성하여 호출 => 권장
+window.onload=function() {
+	//Javascript 코드 실행되기 전에 HTML의 DOM Tree 완성되어 document 객체에 저장
+	// => document 객체를 사용하기 위해서는 window.onload 이벤트 핸들러 함수 필요
+	// => document 객체 : 태그의 이벤트 속성 또는 DHTML 관련 프로퍼티 및 메소드를 사용하기 위한 객체
+	//alert("로딩 완료");
+	loaded();
+}
+</script>
+</head>
+<!-- 이벤트 처리방법-1 : HTML의 이벤트 속성의 속성값으로 이벤트 핸들러 함수 호출 -->
+<!--  => 이벤트 속성값에서는 javascript 접두사 생략 가능 -->
+<!-- <body onload="javascript:loaded();"> -->
+<body>
+	<h1>onload 이벤트</h1>
+	<hr>
+	<p>이벤트(Event) : 어떤 사건이 발생된 경우 - 이벤트 처리 필요</p>
+	<p>이벤트 처리 : Javascript의 함수 호출하여 사용 - 이벤트 핸들러 함수</p>
+	<p>onload : 로딩(불러오기)이 완료된 경우 발생되는 이벤트</p>
+</body>
+</html>

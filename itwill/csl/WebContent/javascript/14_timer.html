@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>내장함수</title>
+<script type="text/javascript">
+var intervalId=setInterval(function() {
+	alert("안녕하세요.");
+},1000);
+
+setTimeout(function() {
+	clearInterval(intervalId);
+},5000);
+</script>
+</head>
+<body>
+	<h1>Timer 함수</h1>
+	<hr>
+	<p>setTimeout(callback,ms) : 시간(ms) 경과 후 callback 함수의 
+	명령 실행 => timeoutId 반환</p>
+	<p>clearTimeout(timeoutId) : timeoutId에 대한 setTimeout() 
+	함수 초기화(취소)</p>
+	<hr>
+	<p>setInterval(callback,ms) : 시간(ms) 마다 callback 함수의 
+	명령 반복 실행 => intervalId 반환</p>
+	<p>clearInterval(intervalId) : intervalId에 대한 setInterval() 
+	함수 초기화(취소)</p>
+</body>
+</html>

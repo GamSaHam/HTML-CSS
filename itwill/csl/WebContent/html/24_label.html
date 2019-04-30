@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>label 태그</title>
+</head>
+<body>
+	<h1>label 태그 - 입력 선택 영역 설정</h1>
+	<hr>
+	<h3>label 미사용 - 입력태그 선택시 커서 위치</h3>
+	아이디 : <input type="text" name="id"><br>
+	비밀번호 : <input type="password" name="passwd"><br>
+	<hr>
+	<h3>label 사용 - label 태그 선택시 커서 위치</h3>
+	<label>아이디 : <input type="text" name="id"></label><br>
+	<label>비밀번호 : <input type="password" name="passwd"></label><br>
+	<hr>
+	<h3>label 미사용</h3>
+	등산<input type="checkbox" name="hobby">&nbsp;&nbsp;&nbsp;
+	낚시<input type="checkbox" name="hobby">&nbsp;&nbsp;&nbsp;
+	게임<input type="checkbox" name="hobby">&nbsp;&nbsp;&nbsp;
+	독서<input type="checkbox" name="hobby">
+	<hr>
+	<h3>label 사용</h3>
+	<!-- for 속성 : label과 연결되는 입력태그의 id 속성값 설정 -->
+	<label for="h1">등산</label><input type="checkbox" name="hobby" id="h1">&nbsp;&nbsp;&nbsp;
+	<label for="h2">낚시</label><input type="checkbox" name="hobby" id="h2">&nbsp;&nbsp;&nbsp;
+	<label for="h3">게임</label><input type="checkbox" name="hobby" id="h3">&nbsp;&nbsp;&nbsp;
+	<label for="h4">독서</label><input type="checkbox" name="hobby" id="h4">
+</body>
+</html>

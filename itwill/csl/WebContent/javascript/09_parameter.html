@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Parameter(Argument)</title>
+<script type="text/javascript">
+function sum(su1,su2) {
+	alert("합계 = "+(su1+su2));
+}
+
+//sum(10,20);
+//sum(50,90);
+
+//var num1=Number(prompt("첫번째 정수를 입력해 주세요."));
+//var num2=Number(prompt("두번째 정수를 입력해 주세요."));
+//sum(num1,num2);
+
+//매개변수의 갯수보다 적게 값 전달 가능
+// => 값이 전달되지 않은 매개변수는 undefined로 선언
+//sum(10);
+
+//매개변수의 갯수보다 많은 값 전달 가능
+// => 매개변수는 저장되지 않은 값들은 소멸 
+//sum(10,20,30,40,50);
+
+//함수의 매개변수에는 기본적으로 arguments 배열변수가 존재
+// => 함수를 호출할 때 전달되는 값들이 기본적으로 arguments 배열변수에 모두 저장된다. 
+function total() {
+	var tot=0;
+	for(var i=0;i<arguments.length;i++) {
+		tot+=arguments[i];
+	}
+	alert("합계 = "+tot);
+}
+
+//total(10,20,30);
+total(10,20,30,40,50);
+</script>
+</head>
+<body>
+	<h1>매개변수(인자)</h1>
+	<hr>
+	<p>함수를 호출하여 명령을 실행하기 위해 필요한 값을 외부로부터
+	전달받아 저장하여 사용하기 위한 변수</p>
+</body>
+</html>

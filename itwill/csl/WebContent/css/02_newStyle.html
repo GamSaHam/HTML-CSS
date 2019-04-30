@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>New Design</title>
+<!-- CSS는 style 태그 안에 설정 => head 태그의 하위태그 -->
+<style type="text/css">
+/* CSS 주석 처리 */
+/*
+Selector[,Selector][,Selector][:pseudo-class] {
+	Property: Value [Value] ...;
+	[Property: Value [Value] ...;]
+	... 
+}
+*/	
+h1 {
+	text-align: center;
+}
+
+p {
+	font-size: 16px;
+	color: red;
+}
+
+p:nth-child(2n) {
+	color: green;
+}
+</style>
+</head>
+<body>
+	<h1>홈페이지(CSS 사용)</h1>
+	<hr>
+	<p>아주 중요한 내용-1</p>
+	<p>아주 중요한 내용-2</p>
+	<p>아주 중요한 내용-3</p>
+	<p>아주 중요한 내용-4</p>
+	<p>아주 중요한 내용-5</p>
+</body>
+</html>

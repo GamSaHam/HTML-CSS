@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>font family</title>
+<style type="text/css">
+/* WebFont : 서버의 글꼴이 클라이언트에 없을 경우 서버의 글꼴을
+클라이언트가 자동으로 다운로드 받아 사용할 수 있는 글꼴 */
+/* 
+.ttf(운영체제 글꼴) : 글꼴의 크기가 크기 때문에 웹폰트로 사용하기 부적합
+.woff : IE9.0 이상,파이어폭스,크롬,사파리에서 사용하는 글꼴(권장) 	
+.eot : IE8.0 이하,파이어폭스,크롬,사파리에서 사용하는 글꼴 	
+*/
+
+/* @font-face : WebFont를 등록하기 위한 시스템 속성 */
+@font-face {
+	font-family: "NanumBarunGothic";
+	src: url("fonts/NanumBarunGothic.woff") format("woff");
+}
+
+/* 글꼴을 제공하는 서버에 등록된 WebFont 사용 */
+/*  => https://www.google.com/fonts/earlyaccess */
+/* @import : 외부에 존재하는 css 파일을 포함 시키는 시스템 속성 => link 태그와 유사 */
+@import url("https://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+
+body {
+	/* font-family: "NanumBarunGothic"; */
+	font-family:"Nanum Gothic";
+}
+</style>
+</head>
+<body>
+	<h1>글꼴 지정</h1>
+	<hr>
+	<h2>font-family 설정</h2>
+</body>
+</html>

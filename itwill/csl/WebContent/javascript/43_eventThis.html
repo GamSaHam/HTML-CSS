@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Event</title>
+<style type="text/css">
+#displayDiv {
+	border: 1px solid red;
+}
+</style>
+<script type="text/javascript">
+window.onload=function() {
+	var displayDiv=document.getElementById("displayDiv");
+	displayDiv.onclick=function() {
+		//displayDiv.style="color:green;";
+		this.style="color:green;";
+	}
+	
+	var liNL=document.getElementsByTagName("li");
+	/*
+	liNL.item(0).onclick=function() {
+		liNL.item(0).style="color:orange;";
+	}
+	liNL.item(1).onclick=function() {
+		liNL.item(1).style="color:orange;";
+	}
+	liNL.item(2).onclick=function() {
+		liNL.item(2).style="color:orange;";
+	}
+	*/
+	
+	for(var i=0;i<liNL.length;i++) {
+		liNL.item(i).onclick=function() {
+			//alert(i);
+			//li 태그 중 liNL.item(3) 엘리먼트 이벤트 등록 => liNL.item(i) : null
+			//liNL.item(i).style="color:orange;";
+			
+			//this 키워드를 사용하면 이벤트 발생 엘리먼트에 대한 이벤트 등록
+			this.style="color:orange;";
+		}
+	}
+}
+</script>
+</head>
+<body>
+	<h1>Event This</h1>
+	<hr>
+	<p>이벤트 핸들러 함수에서 이벤트를 발생한 엘리먼트를 표현하기 위한 키워드</p>
+	<hr>
+	<div id="displayDiv">안녕하세요.</div>
+	<hr>
+	<ul>
+		<li>목록-1</li>
+		<li>목록-2</li>
+		<li>목록-3</li>
+	</ul>
+</body>
+</html>

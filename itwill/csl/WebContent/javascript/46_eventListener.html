@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Event</title>
+<script type="text/javascript">
+function doClick1() {
+	alert("이벤트 처리 함수-1");
+}
+
+function doClick2() {
+	alert("이벤트 처리 함수-2");
+}
+
+window.onload=function() {
+	var btn=document.getElementById("btn");
+	/*
+	//엘리먼트의 이벤트 핸들러 등록는 기본적으로 하나만 등록만 가능
+	btn.onclick=function() {
+		alert("이벤트 처리 함수-1");
+	}
+	
+	btn.onclick=function() {
+		alert("이벤트 처리 함수-2");
+	}
+	*/
+	
+	/*
+	btn.onclick=function() {
+		doClick1();
+		doClick2();
+	}
+	*/
+	
+	//Element 객체에 eventListener 메소드가 존재할 경우
+	if(btn.addEventListener) {//IE6 이상 또는 웹브라우저
+		//Element객체.addEventListener(이벤트종류,callback함수[,캡쳐링사용유무])
+		// => 엘리먼트에 이벤트 핸들러를 여러 개 등록하기 위한 메소드
+		btn.addEventListener("click",function() {
+			alert("이벤트 처리 함수-1");
+		},false);
+		btn.addEventListener("click",function() {
+			alert("이벤트 처리 함수-2");
+		},false);
+	} else {//IE5 이하
+		btn.attachEvent("onclick",function() {
+			alert("이벤트 처리 함수-1");
+		});
+		btn.attachEvent("onclick",function() {
+			alert("이벤트 처리 함수-2");
+		});
+	}
+}
+</script>
+</head>
+<body>
+	<h1>이벤트 등록</h1>
+	<hr>
+	<!-- onclick 속성의 속성값으로 여러 개의 이벤트 핸들러 함수 호출 -->
+	<button type="button" onclick="doClick1(); doClick2();">이벤트 발생 버튼</button>
+	<hr>
+	<button type="button" id="btn">이벤트 발생 버튼</button>
+</body>
+</html>

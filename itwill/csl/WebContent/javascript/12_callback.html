@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Callback</title>
+<script type="text/javascript">
+/*
+//callback 함수 선언 => 매개변수에 전달되어 함수 안에서 호출될 함수
+var callback=function() {
+	alert("안녕하세요");
+}
+//callback();
+
+//파라메터에 함수를 전달받기 위한 함수
+function hello(call) {
+	call();//파라메터에 전달된 함수 호출
+}
+
+hello(callback);
+*/
+
+function hello(call) {
+	call();
+}
+
+//익명함수를 매개변수에 전달하여 호출 사용
+hello(function() { 
+	alert("안녕하세요.");
+});
+</script>
+</head>
+<body>
+	<h1>Callback 함수</h1>
+	<hr>
+	<p>함수의 매개변수에 전달하는 함수 
+	=> 함수 내부에서 매개변수로 함수 호출</p>
+</body>
+</html>

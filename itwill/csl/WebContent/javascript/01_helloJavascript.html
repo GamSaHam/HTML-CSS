@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript</title>
+<!-- 클라이언트에서의 웹페이지의 실행 순서 -->
+<!-- HTML 파싱 >> CSS 디자인 >> Javascript 실행 >> HTML 출력 >> 이벤트 처리(Javascript 실행) -->
+<!-- Javascript 명령은 아무곳에서나 선언 가능 -->
+<!--  => head 태그 또는 body 태그의 마지막에 선언하는 것을 권장 -->
+<!-- Javascript Source 파일(XXX.js)의 명령 포함 => src 속성  -->
+<script type="text/javascript" src="01_test.js"></script>
+<!-- Javascript 명령은 script 태그 안에 선언하여 실행 -->
+<script type="text/javascript">
+//Javascript의 주석문은 Java와 동일
+//Javascript는 기본적으로 한 라인의 명령을 하나로 인식
+// => 명령 종료 후 ; 생략 가능하지만 입력하는 것을 권장
+//Javascript는 인터프리터 방식의 실행으로 명령이 차례대로 실행
+//alert("메세지") => 메세지창에 메세지를 출력하는 함수(메소드)
+alert("head 위치에 선언된 Javascript 명령");
+</script>
+</head>
+<!-- onXXX : 이벤트 속성 => 속성값으로 이벤트 처리 명령(Javascript) -->
+<!-- onload : 태그가 화면에 출력된 경우에 대한 이벤트 처리 -->
+<body onload="javascript:alert('이벤트 처리 명령');">
+	<script type="text/javascript">
+	alert("body 처음 위치에 선언된 Javascript 명령");
+	</script>
+	<h1>Javascript 선언 위치</h1>
+	<hr>
+	<p>HTML 내용 출력</p>
+	<p>HTML 내용 출력</p>
+	<p>HTML 내용 출력</p>
+	<p>HTML 내용 출력</p>
+	<p>HTML 내용 출력</p>
+	<p>HTML 내용 출력</p>
+	<p>HTML 내용 출력</p>
+	<p>HTML 내용 출력</p>
+	<p>HTML 내용 출력</p>
+	<script type="text/javascript">
+	alert("body 마지막 위치에 선언된 Javascript 명령");
+	</script>
+</body>
+</html>

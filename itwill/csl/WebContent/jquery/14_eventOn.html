@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Event</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<style type="text/css">
+div {
+	width: 350px;
+	margin: 0 auto;
+	padding: 50px;
+	font-size: 1.2em;
+	text-align: center;
+	border: 1px solid black;
+}
+</style>
+</head>
+<body>
+	<h1>이벤트 등록</h1>
+	<hr>
+	<div>마우스를 클릭하거나 이동해 보세요.</div>
+	<script type="text/javascript">
+	/*
+	$("div").click(function() {
+		$(this).css("background-color","yellow");		
+	});
+	
+	//mouseover() : 마우스 커서가 엘리먼트 영역에 진입한 경우 발생되는
+	//이벤트를 처리하는 이벤트 핸들러 함수를 등록 하기 위한 메소드
+	$("div").mouseover(function() {
+		$(this).css("color","red");
+	});
+	
+	//mouseout() : 마우스 커서가 엘리먼트 영역을 벗어난 경우 발생되는
+	//이벤트를 처리하는 이벤트 핸들러 함수를 등록 하기 위한 메소드
+	$("div").mouseout(function() {
+		$(this).css("color","black");
+		$(this).css("background-color","white");
+	});
+	*/
+	
+	//on() : 여러 이벤트에 대한 이벤트 핸들러 함수를 등록하기 위한 메소드
+	$("div").on({
+		"click":function() {
+			$(this).css("background-color","yellow");	
+		},"mouseover":function() {
+			$(this).css("color","red");
+		},"mouseout":function() {
+			$(this).css("color","black");
+			$(this).css("background-color","white");
+		}
+	});
+	</script>
+</body>
+</html>
+
+
+
+
+
+

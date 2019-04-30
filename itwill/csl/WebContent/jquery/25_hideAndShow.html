@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hide And Show</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<style type="text/css">
+img {
+	margin-top: 20px;
+	border: 3px solid red;
+}
+</style>
+</head>
+<body>
+	<h1>엘리먼트 숨김 또는 보임</h1>
+	<hr>
+	<button type="button" id="btn1">Hide And Show</button>
+	<button type="button" id="btn2">slideUp And slideDown</button>
+	<button type="button" id="btn3">fadeOut And fadeIn</button>
+	<div id="displayDiv">
+		<img src="images/Koala.jpg" width="400" height="400">	
+	</div>
+	<script type="text/javascript">
+	/*
+	//CSS의 display 스타일 속성의 속성값을 변경하여 엘리먼트의 
+	//숨김 또는 보임 설정
+	$("#btn1").click(function() {
+		if($("#displayDiv").css("display")=="block") {
+			$("#displayDiv").css("display","none");
+		} else {
+			$("#displayDiv").css("display","block");
+		}
+	});
+	*/
+	
+	//hide() 또는 show() 메소드를 호출하여 엘리먼트의 숨김 또는 보임 설정
+	// => hide() 또는 show() 메소드는 시간에 따른 효과(Transition) 구현
+	$("#btn1").click(function() {
+		/*
+		if($("#displayDiv").css("display")=="block") {
+			//$("#displayDiv").hide();
+			//파라메터에 시간(ms)를 전달하여 원하는 시간동안 기능 구현 
+			$("#displayDiv").hide(3000);
+		} else {
+			//$("#displayDiv").css("display","block");
+			//$("#displayDiv").show();
+			$("#displayDiv").show(3000);
+		}
+		*/
+		//hide() 또는 show() 메소드 반복 호출
+		//$("#displayDiv").toggle();
+		$("#displayDiv").toggle(3000);
+	});
+	
+	$("#btn2").click(function() {
+		/*
+		if($("#displayDiv").css("display")=="block") {
+			$("#displayDiv").slideUp(3000);
+		} else {
+			$("#displayDiv").slideDown(3000);
+		}
+		*/
+		$("#displayDiv").slideToggle(3000);
+	});
+	
+	$("#btn3").click(function() {
+		/*
+		if($("#displayDiv").css("display")=="block") {
+			$("#displayDiv").fadeOut(3000);
+		} else {
+			$("#displayDiv").fadeIn(3000);
+		}
+		*/
+		$("#displayDiv").fadeToggle(3000);
+	});
+	</script>1
+</body>
+</html>
+
+
+
+
+

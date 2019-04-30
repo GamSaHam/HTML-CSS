@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>내장함수</title>
+<script type="text/javascript">
+var name="홍길동";
+//alert("name = "+name);
+
+//Javascript으로 페이지 이동시 QueryString으로 한글데이타를 전달하고자 할 경우 사용
+// => 한글데이타를 부호화 시키지 않으면 서버에서 한글데이타를 제대로 받아 사용할 수 없다.
+//한글데이타를 유니코드로 변환하여 반환
+var encodeName=encodeURIComponent(name);
+alert("encodeName = "+encodeName);
+
+//유니코드를 한글데이타로 변환하여 반환
+var decodeName=decodeURIComponent(encodeName);
+alert("decodeName = "+decodeName);
+</script>
+</head>
+<body>
+	<h1>부호화 함수 및 복호화 함수</h1>
+	<hr>
+	<p>encodeURIComponent(일반데이타) : 일반 데이타를 부호화된 데이타로 변환하여 반환하는 함수
+	=> 유사) encodeURI(일반데이타)</p>
+	<p>decodeURIComponent(부호화데이타) : 부호화 데이타를 일반 데이타로 변환하여 반환하는 함수
+	=> 유사) decodeURI(일반데이타)</p> 
+</body>
+</html>

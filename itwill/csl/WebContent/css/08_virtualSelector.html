@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Selector</title>
+<style type="text/css">
+div {
+	font-size: 20px;
+	line-height: 35px;
+}
+
+a {
+	color: orange;
+	text-decoration: none;
+}
+
+/* 가상 선택자 : 선택 엘리먼트의 상태를 구분 */
+/* 형식) 선택자:가상선택자 */
+
+/* :link - 한 번도 방문하지 않은 링크 페이지에 스타일 적용 */
+a:link {
+	color: blue;
+}
+
+/* :link - 한 번이라도 방문한 링크 페이지에 스타일 적용 */
+a:visited {
+	color: maroon;
+}
+
+/* :hover - 해당 링크에 마우스 커서가 위치한 경우 스타일 적용 */
+a:hover {
+	color: red;
+	text-decoration: underline;
+}
+
+/* :active - 해당 링크를 누른 경우 스타일 적용 */
+a:active {
+	color: lime;
+}
+
+/* :nth-child(n) - 앞에서 n번째 위치의 엘리먼트에 스타일 적용 */
+ul li:nth-child(2) {
+	background-color: yellow;
+}
+
+/* :nth-last-child(n) - 뒤에서 n번째 위치의 엘리먼트에 스타일 적용 */
+ul li:nth-last-child(2) {
+	background-color: red;
+}
+
+/* :first-child - 첫번째 위치의 엘리먼트에 스타일 적용 */
+ul li:first-child {
+	background-color: fuchsia;
+}
+
+/* :last-child - 마지막 위치의 엘리먼트에 스타일 적용 */
+ul li:last-child {
+	background-color: aqua;
+}
+
+/* :nth-child(odd) 또는 :nth-child(2n-1) - 홀수 위치의 엘리먼트에 스타일 적용 */
+ol li:nth-child(2n-1) {
+	background-color: silver;
+}
+
+/* :nth-child(even) 또는 :nth-child(2n) - 짝수 위치의 엘리먼트에 스타일 적용 */
+ol li:nth-child(even) {
+	background-color: orange;
+}
+
+/* :only-child - 선택 엘리먼트가 하나인 경우 스타일 적용 */
+ol li:only-child {
+	background-color: purple;
+}
+
+input[type="text"] {
+	border: 2px solid orange;
+}
+
+/* :not - 선택 엘리먼트가 아닌 엘리먼트에 스타일 적용 */
+input:not([type="text"]) {
+	border: 2px solid lime;
+}
+
+/* :disabled - 선택 엘리먼트 중 비활성화 상태의 엘리먼트에 스타일 적용 */
+/* 유사 가상선택자 => :checked 또는 :selected  */
+input[type="text"]:disabled {
+	border: 2px dotted purple;
+}
+
+/* :focus => 입력커서가 위치한 엘리먼트에 스타일 적용 */
+input:focus {
+	border: 3px solid red;
+}
+</style>
+</head>
+<body>
+	<h1>가상선택자</h1>
+	<hr>
+	<div>
+		<a href="http://www.daum.net">다음</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="https://www.naver.com">네이버</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="https://www.google.co.kr">구글</a>
+	</div>
+	<hr>
+	<ul>
+		<li>리스트-1</li>
+		<li>리스트-2</li>
+		<li>리스트-3</li>
+		<li>리스트-4</li>
+		<li>리스트-5</li>
+	</ul>
+	<hr>
+	<ol>
+		<li>리스트-1</li>
+		<li>리스트-2</li>
+		<li>리스트-3</li>
+		<li>리스트-4</li>
+		<li>리스트-5</li>
+	</ol>
+	<hr>
+	<ol>
+		<li>유일한 리스트</li>
+	</ol>
+	<hr>
+	<p>아이디 : <input type="text" name="id"></p>
+	<p>비밀번호 : <input type="password" name="passwd"></p>
+	<p>이메일 : <input type="email" name="email"></p>
+	<p>주소 : <input type="text" name="address" disabled="disabled"></p>
+</body>
+</html>

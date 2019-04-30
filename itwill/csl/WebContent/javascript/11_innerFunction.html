@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Inner Function</title>
+<script type="text/javascript">
+/*
+function hello() {
+	alert("Hello Javascript");
+}
+
+//마지막에 선언된 함수 호출
+hello();
+
+//Javascript에서는 동일한 이름의 함수 선언 가능 
+// => 기존 함수 덮어씌우기(기존 함수 호출 불가능) 
+function hello() {
+	alert("Hello jQuery");
+}
+*/
+
+function headerHello() {
+	function hello() {
+		alert("Hello Javascript");
+	}
+	hello();
+}
+
+//headerHello();
+hello();
+
+function hello() {
+	alert("Hello jQuery");
+}
+</script>
+</head>
+<body>
+	<h1>내부함수</h1>
+	<hr>
+	<p>함수 내부에서 선언한 함수 => 선언된 함수 내부에서만 호출 가능</p>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Text Style</title>
+<style type="text/css">
+div {
+	border: 1px solid blue;
+	margin: 15px;
+	width: 500px;
+}
+
+/* direction : 텍스트 쓰기 방향 설정 */
+/* 속성값 => ltr : 왼쪽>>오른쪽(기본)  rtl : 오른쪽>>왼쪽 */
+.dir1 {	direction: ltr; }
+.dir2 { direction: rtl; }
+
+/* text-align : 텍스트 정렬 */
+/* 속성값 => left(기본)  right  center  justify(양쪽)  */\
+/* 왼쪽 정렬과 양쪽 정렬의 차이점 */
+/*  => 출력 범위를 벗어나 자동 줄바꿈 발생시 양쪽 정렬은 오른쪽 외곽선에 정렬 */
+.order1 { text-align: left; }
+.order2 { text-align: right; }
+.order3 { text-align: center; }
+.order4 { text-align: justify; }
+
+.shadow1 {
+	color: gray;
+	/* text-shadow : 텍스트 그림자 효과 => 속성값 : 가로 세로 범짐 색상 */
+	text-shadow: 2px 2px 5px #000; 
+}
+.shadow2 {
+	/* 그림자 효과는 ,를 이용하여 나열 사용 가능 */
+	text-shadow: 0 0 4px #ccc, 0 -5px 4px #ff3, 2px -10px 6px #fd3
+		, -2px -15px 11px #f80, 2px -19px 18px #f20;
+}
+
+.over1 {
+	/* 지정된 출력 범위를 벗어날 경우 텍스트는 자동 줄 바꿈 발생(기본) */
+	width: 200px;
+	white-space: nowrap;/* 지정된 크기를 벗어나 텍스트 출력 */
+	/* overflow : 지정된 크기를 벗어난 경우의 텍스트 처리 */
+	/* 속성값 : hidden(텍스트 숨김) */
+	overflow: hidden;
+}
+
+.over2 {
+	width: 200px;
+	white-space: nowrap;
+	overflow: hidden;
+	/* text-overflow : 지정된 크기를 벗어난 텍스트 출력 처리 */
+	/* 속성값 : clip(기본 - 잘라내어 출력) ellipsis(... 출력) */
+	text-overflow: ellipsis; 
+}
+
+/* text-decoration : 텍스트에 라인을 출력 */
+/* 속성값 : underline  line-through  overline */
+.deco1 { text-decoration: underline; }
+.deco2 { text-decoration: line-through; }
+.deco3 { text-decoration: overline; }
+
+/* text-indent : 텍스트 앞에 여백 출력 */
+.in1 { text-indent: 20px; }
+.in2 { text-indent: 30px; }
+.in3 { text-indent: 40px; }
+
+/* text-transform : 영문 텍스트 대소문자 변형 */
+/* 속성값 : uppercase  lowercase  capitalize */
+.trans1 { text-transform: uppercase; }
+.trans2 { text-transform: lowercase; }
+.trans3 { text-transform: capitalize; }
+</style>
+</head>
+<body>
+	<h1>텍스트 관련 디자인 속성</h1>
+	<hr>
+	<div class="dir1">오늘도 아주 더운 날입니다.</div>
+	<div class="dir2">오늘도 아주 더운 날입니다.</div>
+	<hr>
+	<div class="order1">텍스트 왼쪽 정렬</div>
+	<div class="order2">텍스트 오른쪽 정렬</div>
+	<div class="order3">텍스트 가운데 정렬</div>
+	<div class="order4">텍스트 양쪽 정렬</div>
+	<hr>
+	<h2 class="shadow1">HTML5</h2>
+	<h2 class="shadow2">CSS3</h2>
+	<hr>
+	<div class="over1">HTML5와 CSS3를 배우고 있습니다.</div>
+	<div class="over2">HTML5와 CSS3를 배우고 있습니다.</div>
+	<hr>
+	<p class="deco1">여름 휴가가 다가옵니다.</p>
+	<p class="deco2">여름 휴가가 다가옵니다.</p>
+	<p class="deco3">여름 휴가가 다가옵니다.</p>
+	<hr>
+	<div class="in1">텍스트 들여쓰기</div>
+	<div class="in2">텍스트 들여쓰기</div>
+	<div class="in3">텍스트 들여쓰기</div>
+	<hr>
+	<div class="trans1">java programming</div>
+	<div class="trans2">JAVA PROGRAMMING</div>
+	<div class="trans3">java programming</div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Event</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<style type="text/css">
+fieldset {
+	margin: 10px auto;
+	width: 800px;
+}
+
+legend {
+	font-size: 1.2em;
+}
+
+form label {
+	width: 100px;
+	text-align: right;
+	float: left;
+	margin-right: 10px;
+}
+
+form ul li {
+	list-style-type: none;
+	margin: 15px 0;
+}
+
+#fs {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<h1>입력폼 이벤트</h1>
+	<hr>
+	<form id="joinForm">
+	<fieldset>
+		<legend>회원가입 정보</legend>
+		<ul>
+			<li>
+				<label for="id">아이디</label>
+				<input type="text" name="id" id="id">
+			</li>
+			<li>
+				<label for="passwd">비밀번호</label>
+				<input type="password" name="passwd" id="passwd">
+			</li>
+			<li>
+				<label for="name">이름</label>
+				<input type="text" name="name" id="name">
+			</li>
+			<li>
+				<label for="email">이메일</label>
+				<input type="text" name="email" id="email" size="30">
+			</li>
+			<li>
+				<label for="address">주소</label>
+				<input type="text" name="address" id="address" size="40">
+			</li>
+		</ul>
+	</fieldset>
+	<fieldset id="fs">
+		<button type="submit">회원가입</button>
+		<button type="reset">다시입력</button>
+	</fieldset>
+	</form>
+	<script type="text/javascript">
+	//$(선택자).focus() : 선택자로 선택된 엘리먼트(입력태그)에 포커스를 위치 시키는 메소드
+	$("#id").focus();
+	
+	//회원가입 버튼을 누른 경우 액션 페이지로 입력 데이타를 전달하여 이동
+	// => 입력 데이타에 대한 입력 유무 및 유효성 검사 후 전달
+	$("#joinForm").submit(function() {
+		//$(선택자).val([내용]) : 선택자에 의해 선택된 엘리먼트(입력태그)에
+		//입력된 내용을 반환하거나 변경하는 메소드
+		if($("#id").val()=="") {
+			alert("아이디를 반드시 입력해 주세요.");
+			$("#id").focus();
+			return false;//submit 기본 이벤트 제거
+		}
+		
+		var idReg=/^[a-zA-Z]\w{5,19}$/g;
+		if(!idReg.test($("#id").val())) {
+			alert("규칙에 맞는 아이디를 입력해 주세요.");
+			//$("#id").val("");
+			$("#id").focus();
+			return false;
+		}
+		
+		if($("#passwd").val()=="") {
+			alert("비밀번호를 반드시 입력해 주세요.");
+			$("#passwd").focus();
+			return false;;
+		}
+		
+		if($("#name").val()=="") {
+			alert("이름을 반드시 입력해 주세요.");
+			$("#name").focus();
+			return false;;
+		}
+		
+		if($("#email").val()=="") {
+			alert("이메일을 반드시 입력해 주세요.");
+			$("#email").focus();
+			return false;;
+		}
+		
+		if($("#address").val()=="") {
+			alert("주소를 반드시 입력해 주세요.");
+			$("#address").focus();
+			return false;;
+		}
+		
+		$("#joinForm").attr("action","#");
+		$("#joinForm").attr("method","post");
+	});
+	</script>
+</body>
+</html>

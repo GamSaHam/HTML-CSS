@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS 적용</title>
+<style type="text/css">
+/* 상위 엘리먼트에 적용된 스타일은 하위 엘리먼트에 상속되어 적용된다. */
+body {
+	color: red;
+}
+
+/* 스타일은 단계적으로 적용된다. */
+p {
+	color: blue;
+}
+
+/* !important : 단계적 적용을 무시하고 무조건 적용 */
+ul {
+	color: green !important;
+}
+
+ul {
+	color: blue;
+}
+</style>
+</head>
+<body>
+	<h1>CSS의 단계적 적용 및 상속</h1>
+	<hr>
+	<p>아주 중요한 내용</p>
+	<ul>
+		<li>목록-1</li>
+		<li>목록-2</li>
+		<li>목록-3</li>
+	</ul>
+</body>
+</html>

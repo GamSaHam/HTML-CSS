@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Event</title>
+<script type="text/javascript">
+window.onload=function() {
+	//입력태그의 name 속성값으로 엘리먼트를 표현 가능
+	//focus() : 커서를 입력 태그에 위치하도록 설정하는 메소드
+	document.loginForm.id.focus();
+	
+	//로그인 버튼을 누른 경우 액션 페이지로 데이타를 전달하여 이동
+	document.getElementById("submitBtn").onclick=function() {
+		//입력태그의 입력 유무 확인 및 입력 데이타에 대한 유효성 검사
+		//value : 입력 태그에 입력된 데이타를 표현하는 프로퍼티
+		if(document.loginForm.id.value=="") {
+			alert("아이디를 반드시 입력해 주세요.");
+			document.loginForm.id.focus();
+			return;
+		}
+	
+		if(document.loginForm.passwd.value=="") {
+			alert("비밀번호를 반드시 입력해 주세요.");
+			document.loginForm.passwd.focus();
+			return;
+		}
+		
+		//action : 입력 데이타를 전달하여 이동하는 페이지 정보를 저장하는 프로퍼티
+		document.loginForm.action="#";
+		//method : 입력 데이타를 전달 방식 정보를 저장하는 프로퍼티
+		document.loginForm.method="post";
+		//submit() : 액션 페이지로 입력 데이타를 전달하여 이동하는 메소드
+		document.loginForm.submit();
+	}
+}
+</script>
+</head>
+<body>
+	<h1>입력이벤트</h1>
+	<hr>
+	<p>입력태그에 데이타 입력 유무 확인 및 유효성 검사를 위한 이벤트 처리</p>
+	<hr>
+	<!-- action 및 method 속성은 Javascript에서 구현 가능 -->
+	<!-- <form name="loginForm" action="#" method="post"> -->
+	<form name="loginForm">
+		<p>아이디 : <input type="text" name="id"></p>	
+		<p>비밀번호 : <input type="password" name="passwd"></p>
+		<button type="button" id="submitBtn">로그인</button>	
+	</form>
+</body>
+</html>

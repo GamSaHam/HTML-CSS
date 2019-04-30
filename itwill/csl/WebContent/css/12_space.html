@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Space Style</title>
+<style type="text/css">
+/* letter-spacing : 글자와 글자 사이의 간격 */
+.gap1 { letter-spacing: 0.1em; }
+
+/* word-spacing : 단어와 단어 사이의 간격 */
+.gap2 { word-spacing: 0.3em; }
+
+/* line-height : 라인과 라인 사이의 간격(줄간격) */
+.gap3 { line-height: 40px; }
+
+div {
+	width: 150px;
+	border: 1px solid blue;
+}
+
+/* white-space : 지정된 크기를 벗어난 텍스트 출력 및 공백 처리 */
+/* 속성값 : pre-line(기본) => 공백을 하나로 출력하고 자동 줄바꿈 발생*/
+/*          pre => 공백을 있는 그대로 출력하고 자동 줄바꿈 미발생*/
+/*          nowrap => 공백을 하나로 출력하고 자동 줄바꿈 미발생*/
+/*          pre-wrap => 공백을 있는 그대로 출력하고 자동 줄바꿈 발생*/
+.space1 { white-space: pre-line; }
+.space2 { white-space: pre; }
+.space3 { white-space: nowrap; }
+.space4 { white-space: pre-wrap; }
+</style>
+</head>
+<body>
+	<h1>여백 관련 디자인 속성</h1>
+	<hr>
+	<h2>Java Programming</h2>
+	<h2 class="gap1">Java Programming</h2>
+	<h2 class="gap2">Java Programming</h2>
+	<hr>
+	<h2>HTML5<br>CSS3</h2>
+	<h2 class="gap3">HTML5<br>CSS3</h2>
+	<hr>
+	<div class="space1">웹표준을   이용한   웹사이트   만들기</div>
+	<div class="space2">웹표준을   이용한   웹사이트   만들기</div>
+	<div class="space3">웹표준을   이용한   웹사이트   만들기</div>
+	<div class="space4">웹표준을   이용한   웹사이트   만들기</div>
+</body>
+</html>

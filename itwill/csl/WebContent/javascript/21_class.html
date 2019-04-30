@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Class</title>
+<script type="text/javascript">
+//클래스 선언 - 생성자 함수 선언(프로퍼티 또는 메소드 선언)
+// => 프로퍼티 또는 메소드는 반드시 this를 이용하여 선언하며 프로퍼티에 초기값 부여
+function Student(num,name,address) {
+	this.num=num;
+	this.name=name;
+	this.address=address;
+	//메소드 선언 - 익명함수 형식으로 선언하여 함수변수에 저장
+	// => this를 이용하여 프로퍼티 및 메소드 사용
+	this.display=function() {
+		alert("학번 = "+this.num+", 이름 = "+this.name+", 주소 = "+this.address);
+	}
+}
+
+//클래스를 이용하여 객체 생성 => new 연산자로 생성자 함수를 호출
+// => 프로퍼티 및 메소드를 객체마다 저장하여 사용
+// => 메소드를 객체마다 저장할 경우 메모리 사용이 비효율적이다.
+var student1=new Student(1000,"홍길동","서울시 강남구");
+//alert(student1);
+var student2=new Student(2000,"임꺽정","수원시 팔달구");
+var student3=new Student(3000,"전우치","인천시 월미구");
+
+student1.display();
+student2.display();
+student3.display();
+</script>
+</head>
+<body>
+	<h1>클래스와 객체</h1>
+	<hr>
+	<p>클래스 : 객체를 생성하기 위한 자료형 - property 및 method</p>
+	<p>클래스를 이용하여 객체를 생성하여 프로그램을 작성하면 재사용성을
+	높여 프로그램 생산성 증대 및 유지보수를 쉽게 할 수 있다.(OOP)</p>
+	<p>클래스 선언 => 생성자 함수 선언</p>
+	<p>클래스의 프로퍼티 및 메소드는 this를 이용하여 선언</p>
+	<p>클래스로 객체를 생성하기 위해서는 new 연산자로 생성자 함수를
+	호출하여 객체 생성 - 프로퍼티와 메소드 사용</p>
+</body>
+</html>

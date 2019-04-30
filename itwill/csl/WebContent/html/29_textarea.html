@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>textarea 태그</title>
+</head>
+<body>
+	<h1>textarea 태그 - 여러 줄의 문자열 입력</h1>
+	<hr>
+	<h3>자기소개서</h3>
+	<form action="#" method="post">
+	<table>
+		<tr>
+			<td>장점</td>
+			<td>
+				<!-- rows 속성 : 입력 행의 크기 -->
+				<!-- cols 속성 : 입력 열의 크기 -->
+				<!-- textarea 태그의 내용을 입력하면 초기값으로 사용  -->
+				<textarea rows="8" cols="60" name="advantage"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>단점</td>
+			<td>
+				<textarea rows="8" cols="60" name="weakness"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<th colspan="2"><button type="submit">전송</button></th>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>
+

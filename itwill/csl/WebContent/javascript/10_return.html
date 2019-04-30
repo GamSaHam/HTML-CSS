@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>return</title>
+<script type="text/javascript">
+function sum(su1,su2) {
+	//매개변수에 전달된 값에 대한 유효성 검사
+	if(isNaN(su1)||isNaN(su2)) {
+		alert("숫자 2개를 전달해야만 함수 호출이 가능합니다.");
+		return;//함수 종료
+	}
+	return su1+su2;//값 반환
+}
+
+//함수 호출 후 반환된 결과값을 변수에 저장 => 반환값을 계속 사용할 경우
+//var tot=sum(10,20);
+//alert("합계 = "+tot);
+
+//함수 호출 후 반환된 결과값 출력
+//alert("합계 = "+sum(100,200));
+
+//매개변수에 값을 전달하지 않으면 undefined 변수를 연산하여 NaN 반환
+//alert("합계 = "+sum());
+//매개변수에 문자열이 전달될 경우 문자열 결합 결과가 반환
+//alert("합계 = "+sum("abc",200));
+
+function result(num1,num2) {
+	alert(num1+num2);	
+}
+
+//반환값이 없는 함수를 호출할 경우 변수에는 아무런 값도 저장되지 않는다. => undefined 
+var num=result(100,200);
+alert("num = "+num);
+</script>
+</head>
+<body>
+	<h1>return</h1>
+	<hr>
+	<p>함수를 종료하기 위한 제어문 
+	=> 함수 안의 값을 함수를 호출한 명령으로 반환</p>
+</body>
+</html>

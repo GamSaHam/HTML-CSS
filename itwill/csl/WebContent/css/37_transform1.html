@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Transform Style</title>
+<style type="text/css">
+img {
+	border: 1px solid black; 
+}	
+
+.image {
+	float: left;
+	margin: 20px;
+	background: rgba(0,0,255,.3);
+	
+	/* perspective : Z 영역(원근감) 생성 => 속성값은 영역 크기 */
+	perspective: 200px;
+	
+	/* transform-style : 박스모델에 3D 효과 부여 유무 설명 */
+	/* 속성값 => flat(기본)  perserve-3d : 3D 효과 */
+	transform-style: perserve-3d;
+}
+
+#translatexy img {
+	/* transform : 박스모델 변형 */
+	/* 속성값 => translate(x,y) 함수 : 박스모델의 가로 및 세로 방향 이동 */
+	transform: translate(20px,20px);
+}
+
+#translatex img {
+	/* 속성값 => translateX(x) 함수 : 박스모델의 가로 방향 이동 */
+	transform: translateX(-20px);
+}
+
+#translatey img {
+	/* 속성값 => translateY(y) 함수 : 박스모델의 세로 방향 이동 */
+	transform: translateY(-20px);
+}
+
+#translatez img {
+	/* 속성값 => translateZ(z) 함수 : 박스모델의 원근 이동 */
+	transform: translateZ(-20px);
+}
+
+#translatexyz img {
+	/* 속성값 => translate3d(x,y,z) 함수 : 박스모델의 입체 이동 */
+	transform: translate3d(-20px,-20px,-20px);
+}
+</style>
+</head>
+<body>
+	<h1>Transform - translate(이동)</h1>
+	<hr>
+	<div id="original">
+		<h4>원본이미지</h4>
+		<img src="images/1.jpg">
+	</div>
+	<hr>
+	<div id="translatexy" class="image">
+		<img src="images/1.jpg">
+	</div>
+	<div id="translatex" class="image">
+		<img src="images/1.jpg">
+	</div>
+	<div id="translatey" class="image">
+		<img src="images/1.jpg">
+	</div>
+	<div id="translatez" class="image">
+		<img src="images/1.jpg">
+	</div>
+	<div id="translatexyz" class="image">
+		<img src="images/1.jpg">
+	</div>
+</body>
+</html>

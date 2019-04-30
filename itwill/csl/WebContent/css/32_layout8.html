@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Layout Style</title>
+<style type="text/css">
+div {
+	width: 400px;
+	height: 200px;
+	margin: 10px 20px;
+	border: 1px solid black;
+}
+
+/* position : 박스모델 배치 방법 설정 => LayoutManager */
+.redDiv {
+	background: red;
+	
+	/* 속성값 => static(기본) : 박스모델을 흐름에 맞춰 자동 배치 */
+	/* position: static; */
+	
+	/* 속성값 => relative : 박스모델을 흐름에 맞춰 자동 배치 */
+	/* relative 속성값을 이용할 경우 top 또는 left 속성으로 
+	박스모델의 출력 위치를 변경할 수 있다. => 기준 : 자동 배치된 박스모델의 출력 위치 */
+	/* 위로부터 아래로 이동(양수) 하거나 아래로부터 위로 이동(음수)*/
+	/* 왼쪽부터 오른쪽으로 이동(양수) 하거나 오른쪽으로부터 왼쪽으로 이동(음수)*/ 
+	/*
+	position: relative;
+	top: 50px;
+	left: 30px;
+	*/
+
+	/* 속성값 => absolute : 기존 자동 배치 박스모델 다음에 무조건 배치 */
+	/* absolute 속성값을 이용할 경우 top 또는 left 속성으로 
+	박스모델의 출력 위치를 변경할 수 있다. => 기준 : 브라우저의 Document 영역을 기준 */
+	/*
+	position: absolute;
+	top: 200px;
+	left: 100px;
+	*/
+	
+	/* 속성값 => fixed : absolute와 동일 */
+	/* absolute 속성값와 다른 점은 출력 범위를 벗어나도 스크롤이 발생되지 않는다. */
+	position: fixed;
+	top: 200px;
+	left: 100px;	
+}
+
+.greenDiv {
+	background: green;
+	
+	/* position: static; */
+	
+	/*
+	position: relative;
+	top: -30px;
+	left: -10px;
+	*/
+	
+	/*
+	position: absolute;
+	top: 250px;
+	left: 500px;
+	*/ 
+
+	position: fixed;
+	top: 250px;
+	left: 500px;
+}
+
+.blueDiv {
+	background: blue;
+	
+	/* position: static; */
+	
+	/*
+	position: relative;
+	top: 40px;
+	left: -20px;
+	*/
+
+	/*
+	position: absolute;
+	top: 300px;
+	left: 400px; 
+	*/
+
+	position: fixed;
+	top: 300px;
+	left: 400px;
+}
+</style>
+</head>
+<body>	
+	<h1>박스모델 배치 방법</h1>
+	<hr>
+	<div class="redDiv"></div>
+	<div class="greenDiv"></div>
+	<div class="blueDiv"></div>
+</body>
+</html>

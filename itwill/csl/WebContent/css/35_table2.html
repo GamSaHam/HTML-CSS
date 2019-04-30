@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Table Style</title>
+<style type="text/css">
+table {
+	margin: 0 auto;
+	border: 1px solid black;
+	/* border-collapse : 테이블과 셀의 외곽선 처리 */
+	/* 속성값 => separate : 구분 처리   collapse : 병합 처리*/
+	border-collapse: collapse;
+}
+
+th, td {
+	border: 1px solid black;
+	height: 30px;
+	padding: 5px;
+}
+
+.num {
+	/* 모든 셀의 폭을 설정하면 테이블의 크기가 설정된다. */
+	width: 50px;
+	text-align: center;
+}
+
+.name {
+	width: 100px;
+	text-align: center;
+}
+
+.addr {
+	width: 200px;
+}
+</style>
+</head>
+<body>
+	<h1>테이블 디자인</h1>
+	<hr>
+	<table>
+		<tr><th>번호</th><th>이름</th><th>주소</th></tr>
+		<tr>
+			<td class="num">1000</td>
+			<td class="name">홍길동</td>
+			<td class="addr">서울시 용산구</td>
+		</tr>
+		<tr>
+			<td class="num">2000</td>
+			<td class="name">전우치</td>
+			<td class="addr">인천시 계양구</td>
+		</tr>
+		<tr>
+			<td class="num">3000</td>
+			<td class="name">일지매</td>
+			<td class="addr">수원시 팔달구</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Type Casting</title>
+<script type="text/javascript">
+//alert("20+10");//20+10
+
+//+ 연산자는 두 피연산자의 자료형이 Number인 경우 산술 연산
+//alert(20+10);//30
+
+//+ 연산자는 두 피연산자 중 하나의 자료형이 String인 경우 결합 연산
+//alert("20"+"10");//2010
+//alert("20"+10);//2010
+//alert(20+"10");//2010
+
+//+ 연산자를 제외한 산술연산자는 피연산자 무엇이든 Number 
+//자료형으로 자동 형변환하여 연산
+//alert(20*10);
+//alert("20"*"10");
+//alert("20"*10);
+//alert(20*"10");
+
+//NaN(Not a Number) : Number 자료형으로 형변환 되어도 연산 할
+//수 없는 값을 표현하기 위한 키워드
+//alert("abc"*10); 
+
+//Number("문자열") : String 자료형을 Number 자료형으로 변환하는 함수 
+//alert(Number("20")+10);//30
+
+/*
+//prompt("메세지"[,초기값]) : 값(String)을 입력 받아 반환하는 창을 출력하는 함수 
+var input1=Number(prompt("첫번째 숫자를 입력해 주세요."));
+//alert(typeof(input1));//입력 데이타의 자료형 => String
+var input2=Number(prompt("두번째 숫자를 입력해 주세요."));
+//alert(typeof(input2));
+//입력 데이타가 Number 자료형으로 형변환 될 수 없는 경우 NaN 결과 출력
+alert(input1+input2);
+*/
+
+//Boolean(대상) : String 자료형 또는 Number 자료형을 
+//Boolean 자료형으로 변환하는 함수 
+//alert(Boolean(0));//0 => false
+//alert(Boolean(100));//0을 제외한 나머지 숫자 => true
+
+//alert(Boolean(""));//"" => false
+//alert(Boolean("abc"));//""을 제외한 나머지 문자열 => true
+
+//alert(Boolean(null));//false
+//alert(Boolean(undefined));//false
+
+//String(대상) : 대상을 String 자료형으로 변환하는 함수 
+// => + 연산자로 "" 결함하여 대상을 String 자료형으로 형변환 가능
+//alert(typeof(100));
+//alert(typeof(String(100)));
+alert(typeof(100+""));
+</script>
+</head>
+<body>
+	<h1>데이타 형변환</h1>
+	<hr>
+	<p>자동 형변환 - 연산자에 의해 자료형이 자동으로 형변환</p>
+	<p>강제 형변환 - 함수를 이용하여 자료형을 강제로 형변환</p>
+</body>
+</html>
